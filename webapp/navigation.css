@@ -9,12 +9,28 @@ body {
     font-family: "Montserrat";
 }
 
+h3 {
+    color: #ff5b5b;
+    font-family: Times;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: -1px;
+    margin: 5;
+}
+/* css of dtu campus map in svg extension
 .dtu{
   display: block;
   margin: 5em auto;
   width: 90%;
   height: 90%;
   border-radius: 10px;
+}
+*/
+
+.background {
+  background: url(pic/DTU_Lyngby_Campus_kort.jpg)
+  opacity: 0.8;
 }
 
 .nav {
