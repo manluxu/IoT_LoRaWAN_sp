@@ -28,11 +28,15 @@ h3 {
 }
 */
 
-.background {
-  background: url(pic/DTU_Lyngby_Campus_kort.jpg);
-  background-size: 100% 100%;
-background-repeat:no-repeat;
-  opacity: 0.8;
+.backmap{
+  position: absolute;
+}
+
+.mark{
+  position: absolute;
+  z-index: 1;
+  top: 5;
+  left: 10;
 }
 
 .nav {
