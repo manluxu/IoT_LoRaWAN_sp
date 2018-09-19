@@ -9,11 +9,20 @@
 
     <body>
 
-      <div class="topnav">
-        <a class="active" href="#0">Ground Floor</a>
-        <a href="#1st">1st Floor</a>
-        <a href="#2nd">2nd Floor</a>
-      </div>
+      <nav class="nav">
+        <ul class="nav__wrap">
+        <img src="pic/dtu_logo.png" style="height:15/5; width:15%; position:relative; top:20px; float:left;"/>
+        <li class="nav__list"><a href="index.html" target="_blanck" class="nav__link">DTU Campus</a>
+        </li>
+        <li class="nav__list"><a href="main.html" target="_blanck" class="nav__link">DTU Fotonik</a>
+        </li>
+
+        <li class="nav__list"><a href="https://github.com/ninomiyaonion/IoT_LoRaWAN_sp" target="_blanck" class="nav__link">GitHub</a>
+        </li>
+    </ul>
+</nav>
+
+<main class="content">
 
       <div id="headings">
         <h1>Temperature Sensor Control and Maintenance</h1>
@@ -47,8 +56,9 @@
       </svg>
 </div>
 
-
+        <script src="navigation.js"></script>
         <script type="text/javascript" src="d3/d3.js"></script>
         <script src="myD3Script.js"></script>
-    </body>
+</main>
+</body>
 </html>

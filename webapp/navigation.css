@@ -33,9 +33,9 @@ h3 {
                    width: 130px;
                    height: 60px;
                    padding: 10px;
-                   font: 12px sans-serif;
+                   font: 8px Arial;
                    font-weight: bold;
-                   background: #F8F8FF;
+                   background: white;
                    border: 20px;
                    border-radius: 10px;
                   /* pointer-events: none;*/
