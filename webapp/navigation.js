@@ -5,3 +5,39 @@ $(document).on('scroll', function() {
         $('.nav').removeClass('nav--shrink');
     }
 });
+
+dataset=[22,11];
+
+var mark = d3.select('#mark')
+.attr("width", 1200) //减是变窄了
+.attr("height", 1500);
+
+//tooltip+circle
+mark.selectAll("circle")
+   .data(dataset)
+   .enter()
+   .append("circle")
+   .attr("cx", 680)
+   .attr("cy", 1090)
+   .attr("r",12)
+   .attr("fill", "red")
+   .on("mouseover", function(d){
+     tooltip.html("<a href='main.html'>Click to check!</a>")
+     .style("left", d3.event.pageX - 80 + "px")
+ .style("top", d3.event.pageY - 80 + "px")
+ .style("opacity", 0.8)
+ d3.select(this).transition()
+       .duration(150)
+});
+
+/*.on("mouseout", function(){
+d3.select(this).transition()
+         .duration(150)
+tooltip.style("opacity", 0)
+});*/
+
+
+    var tooltip = d3.select("body")
+                      .append("div")
+                      .attr("class", "tooltip")
+                      .style("opacity", 0)

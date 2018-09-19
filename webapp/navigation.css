@@ -27,17 +27,21 @@ h3 {
   border-radius: 10px;
 }
 */
+.tooltip{
+                   position: absolute;
+                   text-align: left;
+                   width: 130px;
+                   height: 60px;
+                   padding: 10px;
+                   font: 12px sans-serif;
+                   font-weight: bold;
+                   background: #F8F8FF;
+                   border: 20px;
+                   border-radius: 10px;
+                  /* pointer-events: none;*/
+                 }
 
-.backmap{
-  position: absolute;
-}
 
-.mark{
-  position: absolute;
-  z-index: 1;
-  top: 5;
-  left: 10;
-}
 
 .nav {
     background: #f2f2f2;

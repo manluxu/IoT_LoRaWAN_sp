@@ -6,6 +6,7 @@
         <link rel="shortcut icon" href="pic/favicon.ico" />
         <link rel="stylesheet" type="text/css" media="screen" href="navigation.css"/>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="d3/d3.js"></script>
         </head>
 
     <body>
@@ -28,13 +29,17 @@
 
 <main class="content">
 
-<div class="backmap">
-  <!--<h3>View on Campus Map</h3> -->
-        <img src="pic/DTU_Lyngby_Campus_kort.jpg" width=90% height=90%>
-         <svg class="mark" >
-         <circle cx="10" cy="300" r="14" style="stroke:#006600; fill:#00cc00 "/>>
-         </svg>
+  <div id="map">
+    <h3>View on Campus Map</h3>
+
+    <svg id="mark" width="1260" height="1500">
+        <g>
+          <image xlink:href="pic/DTU_Lyngby_Campus_kort.jpg" x="5" y="10" width="120%" height="100%"></image>
+        </g>
+    </svg>
+
 </div>
+
 
 
           <p style="color:grey;">The floor plan in FOTONIK: <span class="w3-opacity"><a href="main.html" target="_blanck">The floor plan in FOTONIK:</a></span></p>
