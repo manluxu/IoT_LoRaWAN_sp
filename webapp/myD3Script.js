@@ -1,4 +1,10 @@
-
+$(document).on('scroll', function() {
+    if ($(document).scrollTop() > 0) {
+        $('.nav').addClass('nav--shrink');
+    } else {
+        $('.nav').removeClass('nav--shrink');
+    }
+});
 
 var dataset = [-94,20];
 
@@ -41,7 +47,7 @@ l0.selectAll("circle")
    .attr("cx", 620)
    .attr("cy", 210)
    .attr("r",10)
-   .attr("fill", "red")
+   .attr("fill", "#CD5C5C")
    .on("mouseover", function(d){
      tooltip.html("Status: Active" +"<br/>"+"rssi: " + dataset[0] + "<br/>" + 'Temperature: '+ dataset[1] + " °C")
      .style("left", d3.event.pageX - 70 + "px")
@@ -64,38 +70,6 @@ tooltip.style("opacity", 0)
 
 
 
-//for 1st:
-  var dataset1 = [-102,21];
-
-  var l1 = d3.select('#l1')
-  .attr("width", 960) //减是变窄了
-  .attr("height", 500);
-
-  //tooltip+circle
-  l1.selectAll("circle")
-     .data(dataset)
-     .enter()
-     .append("circle")
-     .attr("cx", 450)
-     .attr("cy", 240)
-     .attr("r",10)
-     .attr("fill", "red")
-     .on("mouseover", function(d){
-       tooltip.html("Status: Active" +"<br/>"+"rssi: " + dataset1[0] + "<br/>" + 'Temperature: '+ dataset1[1] + " °C")
-       .style("left", d3.event.pageX - 70 + "px")
-   .style("top", d3.event.pageY - 90 + "px")
-   .style("opacity", 0.8)
-   d3.select(this).transition()
-         .duration(150)
-  })
-  .on("mouseout", function(){
-  d3.select(this).transition()
-           .duration(150)
-  tooltip.style("opacity", 0)
-  });
-
-
-
 //for 2nd:
   var dataset2 = [-94,20];
 
@@ -108,10 +82,14 @@ tooltip.style("opacity", 0)
      .data(dataset)
      .enter()
      .append("circle")
-     .attr("cx", 150)
-     .attr("cy", 340)
+     .attr("cx", 350)
+     .attr("cy", 260)
      .attr("r",10)
-     .attr("fill", "red")
+     .attr("fill", "#FF6347")
+     .attr("fill-opacity", 0.7)
+     .attr("stroke", "#FFB6C1")
+     .attr("stroke-width", 12)
+     .attr("stroke-opacity", 0.5)
      .on("mouseover", function(d){
        tooltip.html("Status: Active" +"<br/>"+"rssi: " + dataset2[0] + "<br/>" + 'Temperature: '+ dataset2[1]+ " °C")
        .style("left", d3.event.pageX - 70 + "px")
