@@ -70,44 +70,6 @@ tooltip.style("opacity", 0)
 
 
 
-// for bar chart:
-var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
-        11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
-        var w = 400;
-  			var h = 250;
-
-var xScale = d3.scaleBand()
-        .domain(d3.range(dataset.length))
-        .rangeRound([0, w])
-        .paddingInner(0.05);
-
-var yScale = d3.scaleLinear()
-        .domain([0, d3.max(dataset)])
-        .range([0, h]);
-
-
-var bar = d3.select('#bar')
-     .append("svg")
-     .attr("width", w)
-     .attr("height", h);
-
-bar.selectAll("rect")
-    .data(dataset)
-    .enter()
-    .append("rect")
-    .attr("x", function(d, i) {
-       return xScale(i);
-    })
-    .attr("y", function(d) {
-       return h - yScale(d);
-    })
-    .attr("width", xScale.bandwidth())
-    .attr("height", function(d) {
-       return yScale(d);
-    })
-    .attr("fill", function(d) {
-     return "rgb(0, 0, " + Math.round(d * 10) + ")";
-    });
 //for 2nd:
   var dataset2 = [-94,20];
 
@@ -131,7 +93,7 @@ bar.selectAll("rect")
      .on("click", openNav)
      .on("mouseover", function(d){
        d3.select(this).style("cursor", "pointer");
-       tooltip.html("Status: Active" +"<br/>"+"rssi: " + dataset2[0] + "<br/>" + 'Temperature: '+ dataset2[1]+ " °C")
+       tooltip.html("Status: Active" +"<br/>"+"Rssi: " + dataset2[0] + "<br/>" + 'Temperature: '+ dataset2[1]+ " °C")
        .style("left", d3.event.pageX - 70 + "px")
    .style("top", d3.event.pageY - 90 + "px")
    .style("opacity", 0.8)
@@ -147,7 +109,7 @@ bar.selectAll("rect")
 /*navigation*/
 
   function openNav() {
-    document.getElementById("mySidenav").style.width = "650px";
+    document.getElementById("mySidenav").style.width = "550px";
     document.getElementById("main").style.marginRight = "550px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
@@ -157,3 +119,106 @@ function closeNav() {
     document.getElementById("main").style.marginRight= "0";
     document.body.style.backgroundColor = "white";
 }
+
+/*chart js*/
+var testValueCount=10;
+  function NewValue(){
+       testValueCount++;
+ // console.log(testValueCount);
+        if(testValueCount==25 || testValueCount==28){
+		    return 20;
+		}
+
+		if(testValueCount==100){
+		  return 15;
+		}
+        if(Math.random() > .5){
+            return Math.round(Math.random()*15);
+        } else {
+            return (Math.random()*15).toFixed(1);
+        }
+
+
+
+    }
+
+
+	var el=d3.select("#use1");
+	var min=el.attr("minvalue");
+	var max=el.attr("maxvalue");
+	var samprate=el.attr("samprate");
+	var dataCount=el.attr("datacounts");
+
+
+
+    var uadatas=[];
+	var ubdatas=[];
+	var uadatas2=[];
+	var ubdatas2=[];
+
+	var uadatas3=[];
+	var ubdatas3=[];
+
+	 var t=new Date();
+    var timenow=t.getTime();
+
+	var timeStart=timenow;
+
+    uadatas.push([timeStart,22]);
+    ubdatas.push([timeStart,20]);
+	uadatas2.push([timeStart,160]);
+    ubdatas2.push([timeStart,300]);
+	uadatas3.push([timeStart,20]);
+    ubdatas3.push([timeStart,80]);
+
+	var lineInitdataset = [
+
+	  {name:"UA",
+	  alldatas:uadatas
+	 }
+    ];
+
+
+	function addData(timeminInLine,dataCountInLine,timeStepInLine,updateData,useId){
+	      var t = new Date();
+
+		  var timenowToAdd = timeminInLine+dataCountInLine*timeStepInLine;
+
+		 if(useId=="use1"){
+		      for (var i = 0; i < updateData.length; i++) {
+			  updateData[i].alldatas.push([timenowToAdd, NewValue()]);
+		   }
+		 }
+
+		 if(useId=="use2"){
+		   for (var i = 0; i < updateData.length; i++) {
+			  updateData[i].alldatas.push([timenowToAdd, NewValue1()]);
+		   }
+		 }
+
+		  if(useId=="use3"){
+		   for (var i = 0; i < updateData.length; i++) {
+			  updateData[i].alldatas.push([timenowToAdd, NewValue2()]);
+		   }
+		 }
+
+
+		   return updateData;
+	}
+
+	function deleteData(updateData,useId){
+	      for (var i = 0; i < updateData.length; i++) {
+			       updateData[i].alldatas.shift();
+	       }
+		  return updateData;
+	}
+
+
+	var objLine=new LoadLineChart("realTimeLine_2",lineInitdataset,min,max,samprate,dataCount,"use1");
+	objLine.updateLineChart();
+
+	//var objLine2=new LoadLineChart("realTimeLine_3",lineInitdataset2,min2,max2,samprate2,dataCount2,"use2");
+	//objLine2.updateLineChart();
+
+	//var objLine3=new LoadLineChart("realTimeLine_4",lineInitdataset3,min3,max3,samprate3,dataCount3,"use3");
+	//objLine3.updateLineChart();

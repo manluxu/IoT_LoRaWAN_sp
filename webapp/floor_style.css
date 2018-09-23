@@ -74,18 +74,33 @@ circle:hover {
 
 .tooltip{
      position: absolute;
+     z-index: 2;
      text-align: left;
      width: 130px;
      height: 75px;
      padding: 10px;
      font: 12px sans-serif;
      font-weight: bold;
+
      background: #F8F8FF;
      border: 20px;
      border-radius: 10px;
      pointer-events: none;
-     cursor:pointer
     }
+
+  .tooltip2{
+  position: absolute;
+  z-index: 3;
+  width: 120;
+  height: auto;
+  font-family: simsun;
+  font-size: 14px;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  background-color: white;
+  border-radius: 5px;
+  }
 
 /*top navigation */
 .nav {
