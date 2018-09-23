@@ -35,43 +35,9 @@ setInterval(function(){
 
 
 
-var l0 = d3.select('#l0')
-.attr("width", 960) //减是变窄了
-.attr("height", 500);
-
-//tooltip+circle
-l0.selectAll("circle")
-   .data(dataset)
-   .enter()
-   .append("circle")
-   .attr("cx", 620)
-   .attr("cy", 210)
-   .attr("r",10)
-   .attr("fill", "#CD5C5C")
-   .on("mouseover", function(d){
-     tooltip.html("Status: Active" +"<br/>"+"rssi: " + dataset[0] + "<br/>" + 'Temperature: '+ dataset[1] + " °C")
-     .style("left", d3.event.pageX - 70 + "px")
- .style("top", d3.event.pageY - 90 + "px")
- .style("opacity", 0.8)
- d3.select(this).transition()
-       .duration(150)
-})
-.on("mouseout", function(){
-d3.select(this).transition()
-         .duration(150)
-tooltip.style("opacity", 0)
-});
-
-
-    var tooltip = d3.select("body")
-                      .append("div")
-                      .attr("class", "tooltip")
-                      .style("opacity", 0)
-
 
 
 //for 2nd:
-  var dataset2 = [-94,20];
 
   var l2 = d3.select('#l2')
   .attr("width", 960) //减是变窄了
@@ -93,7 +59,7 @@ tooltip.style("opacity", 0)
      .on("click", openNav)
      .on("mouseover", function(d){
        d3.select(this).style("cursor", "pointer");
-       tooltip.html("Status: Active" +"<br/>"+"Rssi: " + dataset2[0] + "<br/>" + 'Temperature: '+ dataset2[1]+ " °C")
+       tooltip.html("Status: Active" +"<br/>"+"Rssi: " + dataset[0] + "<br/>" + 'Temperature: '+ dataset[1]+ " °C")
        .style("left", d3.event.pageX - 70 + "px")
    .style("top", d3.event.pageY - 90 + "px")
    .style("opacity", 0.8)
@@ -105,6 +71,14 @@ tooltip.style("opacity", 0)
            .duration(150)
   tooltip.style("opacity", 0)
   });
+
+
+  var tooltip = d3.select("body")
+                    .append("div")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0)
+
+
 
 /*navigation*/
 
@@ -133,9 +107,9 @@ var testValueCount=10;
 		  return 15;
 		}
         if(Math.random() > .5){
-            return Math.round(Math.random()*15);
+            return Math.round(Math.random()*20);
         } else {
-            return (Math.random()*15).toFixed(1);
+            return (Math.random()*20).toFixed(1);
         }
 
 
