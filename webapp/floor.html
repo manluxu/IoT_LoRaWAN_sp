@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>IoT Fotonik</title> <!--the title of page bar-->
         <link rel="shortcut icon" href="pic/favicon.ico" />
         <link rel="stylesheet" type="text/css" media="screen" href="floor_style.css"/>
@@ -25,10 +26,18 @@
 
 <main class="content">
 
-      <div id="headings">
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Temperature Chart</a>
+    <a href="#">Update</a>
+    
+    <svg id="bar" width="400" height="300">
+    <svg>
+  </div>
+
+      <div id="main">
         <h1>343 2nd Floor</h1>
-      </div>
-      <div id="2nd">
+
 
             <svg id="l2" width="960" height="500">
                 <g>
