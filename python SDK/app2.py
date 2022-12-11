@@ -61,7 +61,7 @@ def main():
     i = 0
 
     app_id = "microchipuno"
-    access_key = "ttn-account-v2.Y3Sk5dTSbvnYEd3xpts99kuURsBUzTuE8iFhUJCvPfQ"
+    access_key = "accessKey"
 
     handler = ttn.HandlerClient(app_id, access_key)
 
